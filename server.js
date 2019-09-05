@@ -13,12 +13,13 @@ var requestHandler = function(request, response) {
 
   if ( request.method === "GET" && parsedUrl.pathname === "/listings")
   {
+    response.statusCode = 200;
     response.write(listingData);
   }
   else
   {
     response.statusCode = 404;
-    response.statusMessage = 'Bad gateway error';
+    response.write('Bad gateway error');
   }
 
   response.end();
